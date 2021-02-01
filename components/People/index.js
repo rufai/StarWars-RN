@@ -5,8 +5,8 @@ import './styles.css';
 
 import _ from 'lodash'
 
-import Container from './Container'
-import HomeWorld from './HomeWorld'
+import Container from '../Container'
+import HomeWorld from '../HomeWorld'
 
 // const Stack = createStackNavigator()
 
@@ -16,6 +16,19 @@ const People = () => {
     const [modalVisible, setModalVisible] = useState(false)
     const [gender, setGender] = useState('all')
     const [pickerVisible, setPickerVisible] = useState(false)
+
+    useEffect(() => {
+        const api_end_point = "https://swapi.dev/api/people"
+
+        fetch(api_end_point)
+        .then(response => response.json())
+        .then(json => {
+            setData(json.results)
+            setLoading( false )
+            console.log({data}, {loading}, {json}, json.results)
+        })
+        .catch((err) => console.log('err:', err))
+    }, [data, loading])
 
     return (
         <View style={styles.container}>
