@@ -37,11 +37,10 @@ const People = ({props}) => {
     }, [data, loading, gender])
 
     const openHomeWorld = (url) => {
-        console.log(url)
         
         setModalVisible(true)
         setUrl(url)
-        
+        console.log({modalVisible}, {url})
     }
 
     const closeModal = () => {

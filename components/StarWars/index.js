@@ -13,7 +13,6 @@ const links = [
 ]
 
 const HeaderTitle = () => {
-
     return (
         <Text style={{fontSize: 34, color: '255, 232, 31'}}>Star Wars</Text>
     )
@@ -22,10 +21,7 @@ const HeaderTitle = () => {
 const RenderItem = ({item}) => {
     console.log(item.item.title)
     return (
-        
             <Text style={styles.text}>{item.item.title}</Text>
-        
-            
     )
 }
 
