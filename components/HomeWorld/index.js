@@ -48,7 +48,7 @@ const HomeWorld = (props) => {
                 <TextContainer label="Gravity" info={data.gravity}/>
                 <Text 
                   style={styles.closeButton}
-                  onPress={() => props.closeModal}>
+                  onPress={() => props.closeModal()}>
                   Close Modal
                 </Text>
               </View>
@@ -61,7 +61,7 @@ const HomeWorld = (props) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#000',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -73,8 +73,9 @@ const styles = StyleSheet.create({
     },
     closeButton: {
       paddingTop: 20,
-      color: 'white',
-      fontSize: 14
+      color: 'black',
+      fontSize: 14,
+      backgroundColor: "white"
     }
   });
 export default HomeWorld;

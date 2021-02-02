@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet,Text,View, Modal, TouchableHighlight,ActivityIndicator,FlatList,Image,} from 'react-native'
 // import {Picker} from '@react-native-picker/picker';
-import './styles.css';
+// import './styles.css';
 
 import _ from 'lodash'
 
@@ -24,16 +24,23 @@ const People = ({props}) => {
     useEffect(() => {
         // if (!props.url) return
         // const url = props.url.replace('/^http:\/\/\i', 'https://')
+        let isSubscribed = true
         const api_end_point = "https://swapi.dev/api/people"
 
         fetch(api_end_point)
         .then(response => response.json())
         .then(json => {
-            setData(json.results)
-            setLoading( false )
+            // if(isSubscribed) {
+            
+                setData(json.results)
+                setLoading( false )
+            // }
             // console.log({data}, {loading}, {json}, json.results)
         })
         .catch((err) => console.log('err:', err))
+
+        isSubscribed = false
+        
     }, [data, loading, gender])
 
     const openHomeWorld = (url) => {
